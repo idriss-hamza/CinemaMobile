@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.cinemaapp-mergeDebugResources-42:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Android\\Gradle\\caches\\8.10.2\\transforms\\1926d536a0bd03b757a8b36878e26eea\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

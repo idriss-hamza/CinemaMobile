@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_pg.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/age_rating_pg.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_seat_selected.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/seat_selected.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_ic_star.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/ic_star.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/menu_bottom_navigation_menu.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/menu/bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_seat_button_background.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/seat_button_background.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_all.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/age_rating_all.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_ic_home.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_seat_available.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/seat_available.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_activity_main.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_fragment_movie_detail.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/fragment_movie_detail.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_dialog_reservation_form.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/dialog_reservation_form.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/navigation_nav_graph.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_item_seat.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/item_seat.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_fragment_home.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_background.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/age_rating_background.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_r.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/age_rating_r.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_item_movie.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/item_movie.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_movie_placeholder.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/movie_placeholder.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_item_review.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/item_review.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_dialog_time_selection.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/dialog_time_selection.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_fragment_seat_selection.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/fragment_seat_selection.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/layout_activity_movie_detail.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/layout/activity_movie_detail.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_movie_poster_two.png.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/movie_poster_two.png"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_pg13.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/age_rating_pg13.xml"
+    }
+]

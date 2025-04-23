@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="seat_width">32dp</dimen>
+    <dimen name="seat_height">32dp</dimen>
+    <dimen name="seat_margin">2dp</dimen>
+    <dimen name="seat_padding">4dp</dimen>
+</resources> 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_home">
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.cinemaapp.ui.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.cinemaapp.ui.movie.MovieDetailFragment"
+        android:label="Movie Details">
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_seatSelectionFragment"
+            app:destination="@id/seatSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seatSelectionFragment"
+        android:name="com.example.cinemaapp.ui.booking.SeatSelectionFragment"
+        android:label="Select Seats">
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+        <argument
+            android:name="showtime"
+            app:argType="string" />
+    </fragment>
+</navigation> 
