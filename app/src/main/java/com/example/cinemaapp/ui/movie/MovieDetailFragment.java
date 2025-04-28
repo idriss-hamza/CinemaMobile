@@ -33,6 +33,7 @@ public class MovieDetailFragment extends Fragment {
     private Button bookTicketButton;
     private Button watchTrailerButton;
     private DatabaseHelper databaseHelper;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +42,17 @@ public class MovieDetailFragment extends Fragment {
         }
         databaseHelper = new DatabaseHelper(requireContext());
     }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_movie_detail, container, false);
+        return inflater.inflate(R.layout.fragment_movie_detail, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Initialize views
         moviePosterImageView = view.findViewById(R.id.moviePosterImageView);
         movieTitleTextView = view.findViewById(R.id.movieTitleTextView);
         genreTextView = view.findViewById(R.id.genreTextView);
@@ -58,10 +67,36 @@ public class MovieDetailFragment extends Fragment {
         bookTicketButton = view.findViewById(R.id.bookTicketButton);
         watchTrailerButton = view.findViewById(R.id.watchTrailerButton);
 
+        // Load movie details
         loadMovieDetails();
+
+        // Set up button click listeners
         bookTicketButton.setOnClickListener(v -> showTimeSelectionDialog());
         watchTrailerButton.setOnClickListener(v -> openTrailer());
-        return view;
+    }
+
+    private void loadMovieDetails() {
+        Movie movie = databaseHelper.getMovieById(movieId);
+        if (movie != null) {
+            // Load movie poster
+            Glide.with(requireContext())
+                    .load(movie.getImageResourceId())
+                    .placeholder(R.drawable.movie_placeholder)
+                    .into(moviePosterImageView);
+
+            movieTitleTextView.setText(movie.getTitle());
+            genreTextView.setText(movie.getGenre());
+            ratingTextView.setText(String.format("%.1f", movie.getRating()));
+            descriptionTextView.setText(movie.getDescription());
+            priceTextView.setText(String.format("%.2f DT", movie.getPrice()));
+            directorTextView.setText(movie.getDirector());
+            castTextView.setText(movie.getCast());
+            releaseDateTextView.setText(movie.getReleaseDate());
+            durationTextView.setText(String.format("%d min", movie.getDuration()));
+
+            int ageRatingResource = getAgeRatingResource(movie.getAgeRating());
+            ageRatingImageView.setImageResource(ageRatingResource);
+        }
     }
 
     private void openTrailer() {
@@ -71,29 +106,7 @@ public class MovieDetailFragment extends Fragment {
             startActivity(intent);
         }
     }
-    private void loadMovieDetails() {
-        Movie movie = databaseHelper.getMovieById(movieId);
-        if (movie != null) {
-            movieTitleTextView.setText(movie.getTitle());
-            genreTextView.setText(movie.getGenre());
-            ratingTextView.setText(String.format("%.1f", movie.getRating()));
-            descriptionTextView.setText(movie.getDescription());
-            priceTextView.setText(String.format("%.2f DT", movie.getPrice()));
-            directorTextView.setText(movie.getDirector());
-            castTextView.setText(movie.getCast());
-            releaseDateTextView.setText(movie.getReleaseDate());
-            durationTextView.setText(String.format("%d minutes", movie.getDuration()));
 
-            //poster
-            Glide.with(this)
-                    .load(movie.getImageResourceId())
-                    .placeholder(R.drawable.movie_placeholder)
-                    .into(moviePosterImageView);
-
-            int ageRatingResource = getAgeRatingResource(movie.getAgeRating());
-            ageRatingImageView.setImageResource(ageRatingResource);
-        }
-    }
     private void showTimeSelectionDialog() {
         TimeSelectionDialog dialog = TimeSelectionDialog.newInstance(movieId);
         dialog.setOnTimeSelectedListener(showtime -> {
@@ -105,15 +118,18 @@ public class MovieDetailFragment extends Fragment {
         });
         dialog.show(getChildFragmentManager(), "timeSelection");
     }
+
     private int getAgeRatingResource(String ageRating) {
-        switch (ageRating.toLowerCase()) {
-            case "g":
+        if (ageRating == null)
+            return R.drawable.movie_placeholder;
+        switch (ageRating.toUpperCase()) {
+            case "G":
                 return R.drawable.age_rating_all;
-            case "pg":
+            case "PG":
                 return R.drawable.age_rating_pg;
-            case "pg-13":
+            case "PG-13":
                 return R.drawable.age_rating_pg13;
-            case "r":
+            case "R":
                 return R.drawable.age_rating_r;
             default:
                 return R.drawable.age_rating_all;

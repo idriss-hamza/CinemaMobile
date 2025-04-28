@@ -1,4 +1,4 @@
-#Fri Apr 04 10:55:42 CET 2025
+#Mon Apr 28 12:26:58 CET 2025
 base.0=C\:\\Users\\idris\\OneDrive\\Bureau\\mobile\\projrct\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\idris\\OneDrive\\Bureau\\mobile\\projrct\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\idris\\OneDrive\\Bureau\\mobile\\projrct\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex

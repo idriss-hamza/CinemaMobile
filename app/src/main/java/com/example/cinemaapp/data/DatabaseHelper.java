@@ -5,9 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.example.cinemaapp.R;
 import com.example.cinemaapp.models.Movie;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String MOVIES = "movies";
@@ -28,7 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String EMAIL = "email";
     public static final String NAME = "name";
     public static final String SURNAME = "surname";
-    public static final String TEL = "tel";
+    public static final String ADDRESS = "address";
     public static final String MOVIE_ID = "movie_id";
     public static final String SHOWTIME = "showtime";
     public static final String SEATS = "seats";
@@ -52,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + ")";
 
     public DatabaseHelper(Context context) {
-        super(context, "cinema_app.db", null, 5);
+        super(context, "cinema_app.db", null, 10);
     }
 
     @Override
@@ -63,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + EMAIL + " TEXT PRIMARY KEY,"
                 + NAME + " TEXT NOT NULL,"
                 + SURNAME + " TEXT NOT NULL,"
-                + TEL + " TEXT NOT NULL,"
+                + ADDRESS + " TEXT NOT NULL,"
                 + MOVIE_ID + " TEXT NOT NULL,"
                 + SHOWTIME + " TEXT NOT NULL,"
                 + SEATS + " TEXT NOT NULL,"
@@ -88,7 +92,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "The Dark Knight",
                     "Action, Crime, Drama",
                     "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-                    android.R.drawable.ic_menu_gallery,
+                    R.drawable.dark,
                     4.8,
                     "PG-13",
                     12.99,
@@ -97,26 +101,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
                     "July 18, 2008",
                     152));
-            insertMovie(db, new Movie(
-                    "2",
-                    "Inception",
-                    "Action, Sci-Fi, Thriller",
-                    "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-                    android.R.drawable.ic_menu_gallery,
-                    4.7,
-                    "PG-13",
-                    11.99,
-                    "https://www.youtube.com/watch?v=YoHD9XEInc0",
-                    "Christopher Nolan",
-                    "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
-                    "July 16, 2010",
-                    148));
+
             insertMovie(db, new Movie(
                     "3",
                     "Interstellar",
                     "Adventure, Drama, Sci-Fi",
                     "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-                    android.R.drawable.ic_menu_gallery,
+                    R.drawable.inter,
                     4.9,
                     "PG-13",
                     13.99,
@@ -130,7 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "The Matrix",
                     "Action, Sci-Fi",
                     "A computer programmer discovers that reality as he knows it is a simulation created by machines, and joins a rebellion to break free.",
-                    android.R.drawable.ic_menu_gallery,
+                    R.drawable.matrix,
                     4.8,
                     "R",
                     10.99,
@@ -141,24 +132,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     136));
             insertMovie(db, new Movie(
                     "5",
-                    "Pulp Fiction",
-                    "Crime, Drama",
-                    "Various interconnected stories of criminals in Los Angeles.",
-                    android.R.drawable.ic_menu_gallery,
-                    4.7,
+                    "Oppenheimer",
+                    "Biography, Drama, History",
+                    "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+                    R.drawable.oppen,
+                    4.9,
                     "R",
-                    9.99,
-                    "https://www.youtube.com/watch?v=s7EdQ4FqbhY",
-                    "Quentin Tarantino",
-                    "John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis",
-                    "October 14, 1994",
-                    154));
+                    14.99,
+                    "https://www.youtube.com/watch?v=uYPbbksJxIg",
+                    "Christopher Nolan",
+                    "Cillian Murphy, Emily Blunt, Matt Damon, Robert Downey Jr.",
+                    "July 21, 2023",
+                    180));
+            insertMovie(db, new Movie(
+                    "6",
+                    "The Godfather",
+                    "Crime, Drama",
+                    "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+                    R.drawable.father,
+                    4.9,
+                    "R",
+                    12.99,
+                    "https://www.youtube.com/watch?v=sY1S34973zA",
+                    "Francis Ford Coppola",
+                    "Marlon Brando, Al Pacino, James Caan, Diane Keaton",
+                    "March 24, 1972",
+                    175));
             insertMovie(db, new Movie(
                     "0",
                     "Sahbek Rajel",
                     "Comedy, Adventure, Action",
                     "Azouz and Mahdi, two opposite cops, clash through action and comedy as their partnership sparks chaos and unexpected friendship.",
-                    android.R.drawable.ic_menu_gallery,
+                    R.drawable.sahbek,
                     4.9,
                     "PG-13",
                     16,
@@ -255,7 +260,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(EMAIL, email);
         values.put(NAME, name);
         values.put(SURNAME, surname);
-        values.put(TEL, address);
+        values.put(ADDRESS, address);
         values.put(MOVIE_ID, movieId);
         values.put(SHOWTIME, showtime);
         values.put(SEATS, String.join(",", selectedSeats));
@@ -267,4 +272,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    public boolean areSeatsAvailable(String movieId, String showtime, List<String> seatsToCheck) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = { SEATS };
+        String selection = MOVIE_ID + " = ? AND " + SHOWTIME + " = ?";
+        String[] selectionArgs = { movieId, showtime };
+
+        Cursor cursor = db.query(RESERVATIONS, columns, selection, selectionArgs,
+                null, null, null);
+
+        Set<String> reservedSeats = new HashSet<>();
+        while (cursor != null && cursor.moveToNext()) {
+            String seats = cursor.getString(cursor.getColumnIndexOrThrow(SEATS));
+            reservedSeats.addAll(Arrays.asList(seats.split(",")));
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        for (String seat : seatsToCheck) {
+            if (reservedSeats.contains(seat)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

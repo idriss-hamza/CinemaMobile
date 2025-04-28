@@ -1,15 +1,23 @@
 [
     {
-        "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_pg.xml.flat",
-        "source": "com.example.cinemaapp-main-46:/drawable/age_rating_pg.xml"
-    },
-    {
         "merged": "com.example.cinemaapp-debug-44:/drawable_seat_selected.xml.flat",
         "source": "com.example.cinemaapp-main-46:/drawable/seat_selected.xml"
     },
     {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_pg.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/age_rating_pg.xml"
+    },
+    {
         "merged": "com.example.cinemaapp-debug-44:/drawable_ic_star.xml.flat",
         "source": "com.example.cinemaapp-main-46:/drawable/ic_star.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_logo.png.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/logo.png"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_father.jpg.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/father.jpg"
     },
     {
         "merged": "com.example.cinemaapp-debug-44:/menu_bottom_navigation_menu.xml.flat",
@@ -20,8 +28,16 @@
         "source": "com.example.cinemaapp-main-46:/drawable/seat_button_background.xml"
     },
     {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_ic_account.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/ic_account.xml"
+    },
+    {
         "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_all.xml.flat",
         "source": "com.example.cinemaapp-main-46:/drawable/age_rating_all.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_oppen.jpg.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/oppen.jpg"
     },
     {
         "merged": "com.example.cinemaapp-debug-44:/drawable_ic_home.xml.flat",
@@ -30,6 +46,10 @@
     {
         "merged": "com.example.cinemaapp-debug-44:/drawable_seat_available.xml.flat",
         "source": "com.example.cinemaapp-main-46:/drawable/seat_available.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_inter.jpg.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/inter.jpg"
     },
     {
         "merged": "com.example.cinemaapp-debug-44:/layout_activity_main.xml.flat",
@@ -48,8 +68,16 @@
         "source": "com.example.cinemaapp-main-46:/navigation/nav_graph.xml"
     },
     {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_dark.jpg.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/dark.jpg"
+    },
+    {
         "merged": "com.example.cinemaapp-debug-44:/layout_item_seat.xml.flat",
         "source": "com.example.cinemaapp-main-46:/layout/item_seat.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_sahbek.jpg.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/sahbek.jpg"
     },
     {
         "merged": "com.example.cinemaapp-debug-44:/layout_fragment_home.xml.flat",
@@ -58,6 +86,14 @@
     {
         "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_background.xml.flat",
         "source": "com.example.cinemaapp-main-46:/drawable/age_rating_background.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_matrix.jpg.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/matrix.jpg"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_ic_seat.xml.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/ic_seat.xml"
     },
     {
         "merged": "com.example.cinemaapp-debug-44:/drawable_age_rating_r.xml.flat",
@@ -74,6 +110,10 @@
     {
         "merged": "com.example.cinemaapp-debug-44:/layout_item_review.xml.flat",
         "source": "com.example.cinemaapp-main-46:/layout/item_review.xml"
+    },
+    {
+        "merged": "com.example.cinemaapp-debug-44:/drawable_incept.jpg.flat",
+        "source": "com.example.cinemaapp-main-46:/drawable/incept.jpg"
     },
     {
         "merged": "com.example.cinemaapp-debug-44:/layout_dialog_time_selection.xml.flat",

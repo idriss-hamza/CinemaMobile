@@ -213,6 +213,7 @@ public class SeatSelectionFragment extends Fragment {
             String surname = surnameEditText.getText().toString().trim();
             String email = emailEditText.getText().toString().trim();
             String address = addressEditText.getText().toString().trim();
+
             if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || address.isEmpty()) {
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 return;
@@ -221,6 +222,7 @@ public class SeatSelectionFragment extends Fragment {
                 Toast.makeText(requireContext(), "Please enter a valid email address", Toast.LENGTH_SHORT).show();
                 return;
             }
+
             saveReservation(name, surname, email, address);
             dialog.dismiss();
         });
@@ -242,6 +244,7 @@ public class SeatSelectionFragment extends Fragment {
                 email, name, surname, address,
                 movieId, showtime, selectedSeats,
                 totalPrice);
+
         if (success) {
             Toast.makeText(requireContext(), "Reservation confirmed!", Toast.LENGTH_SHORT).show();
             if (getActivity() != null) {
